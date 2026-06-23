@@ -45,7 +45,8 @@ full_data %>%
   theme_bw() +
   labs(title = "qPCR Plate",
        x = "Column",
-       y = "Row")
+       y = "Row") +
+  theme_pubr()
 
   ggsave("images/qpcr_plate.png",
          width = 10,
