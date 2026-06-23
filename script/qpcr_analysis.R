@@ -68,7 +68,8 @@ summarised_data %>%
   ggplot(aes(x = sample_name, y =avg_ct, color = primer)) +
   geom_point() + 
   labs(title = "Mean ct values across replicates",
-       y = "Mean Ct value", x = NULL)
+       y = "Mean Ct value", x = NULL) +
+  theme_pubr()
 
   ggsave(filename = "images/comparing_ct_values_across_bioreplicates.png",
          width = 10,
@@ -116,7 +117,8 @@ delta_ct %>%
   labs(title = "Delta ct values among Samples",
        y = "Delta ct", 
        x = NULL) +
-  theme(legend.position = "none")
+  theme(legend.position = "none") +
+  theme_pubr()
 
 ggsave(filename = "images/comparison_delta_ct.png",
        width = 10,
@@ -153,7 +155,9 @@ delta_delta_ct %>%
   geom_point() +
   labs(title = "Delta Delta Ct amongst RNAI-1, RNAI-2, and the Control", 
        y = "Delta Delta Ct Value",
-       x = NULL)
+       x = NULL) + 
+  theme_pubr()
+
 ggsave(filename = "images/Delta_delta_ct_comparison.png",
        width = 10,
        height = 5,
@@ -168,4 +172,5 @@ rel_concentration <- delta_delta_ct %>%
 # Primer efficiency 
 rel_concentration %>% 
 ggplot(aes(x = sample, y = rel_conc)) +
-geom_point() 
+geom_point() +
+theme_pubr()
